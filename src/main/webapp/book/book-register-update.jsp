@@ -31,6 +31,16 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-25">
+                <label for="stock">Stock: </label>
+            </div>
+            <div class="col-75">
+                <input id="stock" name="stock" required type="text"
+                       value="<c:out value='${book.stock}'/>"/>
+            </div>
+        </div>
+
         <input type="hidden" name="id" id="id" value="<c:out value='${book.id}' />"/>
 
         <div class="row">

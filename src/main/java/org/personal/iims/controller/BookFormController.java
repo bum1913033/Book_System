@@ -45,6 +45,7 @@ public class BookFormController extends HttpServlet {
             book.setIsbn(request.getParameter("isbn"));
             book.setBookName(request.getParameter("bookName"));
             book.setBookAuthor(request.getParameter("bookAuthor"));
+            book.setStock(Integer.parseInt(request.getParameter("stock")));
 
             if (id.length() != 0) {
                 book.setId(Integer.parseInt(id));

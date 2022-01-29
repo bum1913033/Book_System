@@ -18,24 +18,26 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public int save(Book book) throws ClassNotFoundException, SQLException {
-        final String QUERY ="INSERT INTO book (`isbn`, `bookName`, `bookAuthor`) VALUES (?,?,?)";
+        final String QUERY ="INSERT INTO book (`isbn`, `bookName`, `bookAuthor`, `stock`) VALUES (?,?,?,?)";
         connection = ConnectionFactory.getConnection();
         preparedStatement = connection.prepareStatement(QUERY);
         preparedStatement.setString(1, book.getIsbn());
         preparedStatement.setString(2, book.getBookName());
         preparedStatement.setString(3, book.getBookAuthor());
+        preparedStatement.setInt(4, book.getStock());
         return preparedStatement.executeUpdate();
     }
 
     @Override
     public int update(Book book) throws  ClassNotFoundException, SQLException {
-        final String QUERY = "UPDATE book set isbn = ?, bookName = ?, bookAuthor = ? WHERE id = ?";
+        final String QUERY = "UPDATE book set isbn = ?, bookName = ?, bookAuthor = ?, stock = ? WHERE id = ?";
         connection = ConnectionFactory.getConnection();
         preparedStatement = connection.prepareStatement(QUERY);
         preparedStatement.setString(1, book.getIsbn());
         preparedStatement.setString(2, book.getBookName());
         preparedStatement.setString(3, book.getBookAuthor());
-        preparedStatement.setInt(4, book.getId());
+        preparedStatement.setInt(4, book.getStock());
+        preparedStatement.setInt(5, book.getId());
         return preparedStatement.executeUpdate();
     }
 
@@ -60,6 +62,7 @@ public class BookDaoImpl implements BookDao {
             book.setIsbn(resultSet.getString("isbn"));
             book.setBookName(resultSet.getString("bookName"));
             book.setBookAuthor(resultSet.getString("bookAuthor"));
+            book.setStock(resultSet.getInt("stock"));
             books.add(book);
         }
         return books;
@@ -79,6 +82,7 @@ public class BookDaoImpl implements BookDao {
             book.setIsbn(resultSet.getString("isbn"));
             book.setBookName(resultSet.getString("bookName"));
             book.setBookAuthor(resultSet.getString("bookAuthor"));
+            book.setStock(resultSet.getInt("stock"));
         }
         return book;
     }

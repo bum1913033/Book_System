@@ -23,6 +23,7 @@
             <th scope="col">ISBN</th>
             <th scope="col">Book Name</th>
             <th scope="col">Book Author</th>
+            <th scope="col">Stock</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
@@ -34,6 +35,7 @@
                 <td><c:out value="${book.isbn}"/></td>
                 <td><c:out value="${book.bookName}"/></td>
                 <td><c:out value="${book.bookAuthor}"/></td>
+                <td><c:out value="${book.stock}"/></td>
                 <td>
                     <a class="btn btn-edit"
                        href="${pageContext.request.contextPath}/book-save?id=<c:out value="${book.id}"/>">Edit</a>

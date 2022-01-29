@@ -30,7 +30,8 @@ public class BookController extends HttpServlet {
         String isbn = request.getParameter("isbn");
         String bookName = request.getParameter("bookName");
         String bookAuthor = request.getParameter("bookAuthor");
-        Book book = new Book(isbn, bookName, bookAuthor);
+        int stock = Integer.parseInt(request.getParameter("stock"));
+        Book book = new Book(isbn, bookName, bookAuthor, stock);
         try {
             bookDao.save(book);
         } catch (ClassNotFoundException | SQLException ex) {

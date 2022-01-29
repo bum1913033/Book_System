@@ -1,6 +1,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="../fragment/header.jsp"%>
 
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Book Management System</span>
+        
+    </div>
+</nav>
+
 <div class="container form-container">
     <form action="${pageContext.request.contextPath}/book-save" method="POST">
         <div class="row">

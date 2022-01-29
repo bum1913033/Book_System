@@ -17,20 +17,21 @@ public class BookDisplayDeleteController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        try{
-            if (id != null) {
-                int result = bookDao.delete(Integer.parseInt(id));
-                if (result == 1) {
+            //delete code
+            String id = request.getParameter("id");
+            try{
+                if (id != null) {
+                    int result = bookDao.delete(Integer.parseInt(id));
+                    if (result == 1) {
+                        request.setAttribute("books", bookDao.findAll());
+                        response.sendRedirect("Book_System/book");
+                    }
+                } else {
                     request.setAttribute("books", bookDao.findAll());
-                    response.sendRedirect("Book_System/book");
+                    request.getRequestDispatcher("/index.jsp").forward(request, response);
                 }
-            } else {
-                request.setAttribute("books", bookDao.findAll());
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            } catch (SQLException | ClassNotFoundException ex) {
+                System.out.println(ex.getMessage());
             }
-        } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        }
     }
 }

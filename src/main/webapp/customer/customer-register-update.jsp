@@ -26,46 +26,46 @@
 </nav>
 
 <div class="container form-container">
-    <form action="${pageContext.request.contextPath}/book-save" method="POST">
+    <form action="${pageContext.request.contextPath}/customer-save" method="POST">
         <div class="row">
             <div class="col-25">
-                <label for="isbn">ISBN: </label>
+                <label for="customerName">Customer Name: </label>
             </div>
             <div class="col-75">
-                <input id="isbn" name="isbn" required type="text"
-                       value="<c:out value='${book.isbn}'/>"/>
+                <input id="customerName" name="customerName" required type="text"
+                       value="<c:out value='${customer.customerName}'/>"/>
             </div>
         </div>
 
         <div class=" row">
             <div class="col-25">
-                <label for="bookName">Book Name: </label>
+                <label for="customerContact">Contact: </label>
             </div>
             <div class="col-75">
-                <input id="bookName" name="bookName" required type="text" value="<c:out value='${book.bookName}'/>"/>
+                <input id="customerContact" name="customerContact" required type="text" value="<c:out value='${customer.customerContact}'/>"/>
             </div>
         </div>
 
         <div class="row">
             <div class="col-25">
-                <label for="bookAuthor">Book Author: </label>
+                <label for="customerAddress">Address: </label>
             </div>
             <div class="col-75">
-                <input id="bookAuthor" name="bookAuthor" required type="text" value="<c:out value='${book.bookAuthor}'/>"/>
+                <input id="customerAddress" name="customerAddress" required type="text" value="<c:out value='${customer.customerAddress}'/>"/>
             </div>
         </div>
 
         <div class="row">
             <div class="col-25">
-                <label for="stock">Stock: </label>
+                <label for="customerEmail">Email: </label>
             </div>
             <div class="col-75">
-                <input id="stock" name="stock" required type="text"
-                       value="<c:out value='${book.stock}'/>"/>
+                <input id="customerEmail" name="customerEmail" required type="text"
+                       value="<c:out value='${customer.customerEmail}'/>"/>
             </div>
         </div>
 
-        <input type="hidden" name="id" id="id" value="<c:out value='${book.id}' />"/>
+        <input type="hidden" name="id" id="id" value="<c:out value='${customer.id}' />"/>
 
         <div class="row">
             <div class="col-75">

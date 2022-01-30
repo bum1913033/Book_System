@@ -17,14 +17,13 @@ public class BookDisplayDeleteController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            //delete code
             String id = request.getParameter("id");
             try{
                 if (id != null) {
                     int result = bookDao.delete(Integer.parseInt(id));
                     if (result == 1) {
                         request.setAttribute("books", bookDao.findAll());
-                        response.sendRedirect("Book_System/book");
+                        response.sendRedirect("/Book_System/book");
                     }
                 } else {
                     request.setAttribute("books", bookDao.findAll());

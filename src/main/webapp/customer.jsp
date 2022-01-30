@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <span class="navbar-brand mb-0 h1">Book Management System</span>
+        <span class="navbar-brand mb-0 h1">Book Management System - Customer Table</span>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,8 +20,8 @@
                     customers  <i class="far fa-address-book" style="color: white"></i>
                 </a>
 
-                <a class="nav-item nav-link active" href="${pageContext.request.contextPath}/book-save">
-                    add book  <i class="fas fa-plus" style="color: white"></i>
+                <a class="nav-item nav-link active" href="${pageContext.request.contextPath}/customer-save">
+                    add customer <i class="fas fa-user-plus" style="color: white"></i>
                 </a>
 
             </div>
@@ -34,28 +34,28 @@
         <thead class="table-light">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">ISBN</th>
-            <th scope="col">Book Name</th>
-            <th scope="col">Book Author</th>
-            <th scope="col">Stock</th>
+            <th scope="col">Name</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
 
         <tbody>
-        <c:forEach var="book" items="${books}">
+        <c:forEach var="customer" items="${customers}">
             <tr>
-                <td><c:out value="${book.id}"/></td>
-                <td><c:out value="${book.isbn}"/></td>
-                <td><c:out value="${book.bookName}"/></td>
-                <td><c:out value="${book.bookAuthor}"/></td>
-                <td><c:out value="${book.stock}"/></td>
+                <td><c:out value="${customer.id}"/></td>
+                <td><c:out value="${customer.customerName}"/></td>
+                <td><c:out value="${customer.customerContact}"/></td>
+                <td><c:out value="${customer.customerAddress}"/></td>
+                <td><c:out value="${customer.customerEmail}"/></td>
                 <td>
                     <a class="btn btn-edit"
-                       href="${pageContext.request.contextPath}/book-save?id=<c:out value="${book.id}"/>">Edit</a>
+                       href="${pageContext.request.contextPath}/customer-save?id=<c:out value="${customer.id}"/>">Edit</a>
                     <a class="btn btn-danger"
-                       href="${pageContext.request.contextPath}/book?id=<c:out value="${book.id}"/>">
-                        <i class="far fa-trash-alt"></i>
+                       href="${pageContext.request.contextPath}/customer?id=<c:out value="${customer.id}"/>">
+                        <i class=" far fa-trash-alt"></i>
                     </a>
                 </td>
             </tr>
